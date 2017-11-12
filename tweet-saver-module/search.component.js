@@ -4,7 +4,7 @@
 var tweetSaver = angular.module("tweetSaverModule");
 
 var search = tweetSaver.component("search", {
-	templateUrl: "",
+	templateUrl: "tweet-saver-module/search.component.html",
 	bindings: {},
 	controllerAs: "model",
 	controller: function(){
