@@ -4,7 +4,7 @@
     var tweetSaver = angular.module("tweetSaverModule");
 
     var tweetDetail = tweetSaver.component("tweetDetail", {
-        templateUrl: "tweet-saver-module/tweetDetail.component.html",
+        templateUrl: "tweet-saver-module/tweet-detail.component.html",
         bindings: {},
         controllerAs: "model",
         controller: function() {

@@ -20,4 +20,4 @@ var saver = tweetSaver.component("saver", {
 	}
 });
 
-}();)
+}());
