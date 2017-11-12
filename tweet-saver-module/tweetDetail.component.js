@@ -3,7 +3,7 @@
 
 var tweetSaver = angular.module("tweetSaverModule");
 
-var saver = tweetSaver.component("saver", {
+var tweetDetail = tweetSaver.component("tweetDetail", {
 	templateUrl: "",
 	bindings: {},
 	controllerAs: "model",
@@ -15,7 +15,7 @@ var saver = tweetSaver.component("saver", {
 		}
 
 		model.$onChange = function(){
-		
+
 		}
 	}
 });
