@@ -1,23 +1,23 @@
-(function(){
-"use strict";
+(function() {
+    "use strict";
 
-var tweetSaver = angular.module("tweetSaverModule");
+    var tweetSaver = angular.module("tweetSaverModule");
 
-var tweetDetail = tweetSaver.component("tweetDetail", {
-	templateUrl: "",
-	bindings: {},
-	controllerAs: "model",
-	controller: function(){
-		var model = this;
+    var tweetDetail = tweetSaver.component("tweetDetail", {
+        templateUrl: "tweet-saver-module/tweetDetail.component.html",
+        bindings: {},
+        controllerAs: "model",
+        controller: function() {
+            var model = this;
 
-		model.$onInit = function(){
+            model.$onInit = function() {
 
-		}
+            }
 
-		model.$onChange = function(){
+            model.$onChange = function() {
 
-		}
-	}
-});
+            }
+        }
+    });
 
 }());
