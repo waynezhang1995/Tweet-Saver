@@ -24,59 +24,61 @@
 <body ng-controller="tweetsCtrl">
     <h1>Tweet Saver</h1>
     <hr>
-    <div class="container search-box">
+    <div class="container-fluid search-box">
         <div class="row">
-            <div class="col-md-6">
-                <div id="custom-search-input">
-                    <div class="input-group col-md-12">
-                        <input type="text" class="form-control input-lg" ng-model="queryInput" placeholder="Search Twitter" />
-                        <span class="input-group-btn">
-                            <button class="btn btn-info btn-lg" ng-click="loadTweets()">
-                            <i class="glyphicon glyphicon-search"></i>
-                            </button>
-                        </span>
-                    </div>
+            <div class="col-xs-6 custom-search-input">
+                <div class="input-group">
+                    <input type="text" class="form-control input-lg" ng-model="queryInput" placeholder="Search Twitter" />
+                    <span class="input-group-btn">
+                        <button class="btn btn-info btn-lg" type="button" ng-click="loadTweets()">
+                        <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
                 </div>
+            </div>
+            <div class="col-xs-6">
+                <h2>Drag tweets to save</h2>
             </div>
         </div>
     </div>
-    <div class="left_box container-fluid">
-        <ul class="list-group" ng-repeat="tweet in tweetsList">
-            <li id="{{tweet.id}}" class="list-group-item" draggable="true" ondragstart="angular.element(this).scope().drag(event)">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-xs-6 col-lg-4">
-                            <img style="width:50%" ng-src="{{tweet.user.biggerProfileImageURL}}">
-                        </div>
-                        <div class="col-xs-12 col-sm-6 col-lg-8">
-                            <div class="container-fluid">
-                                <div class="row">
-                                    <div class="col-xs-6 col-md-4 font-weight-bold">
-                                        <p><strong>{{tweet.user.name}}</strong></p>
-                                    </div>
-                                    <div class="col-xs-6 col-md-4">
-                                        <p>{{tweet.user.screenName}}</p>
-                                    </div>
-                                    <div class="col-xs-6 col-md-4">
-                                        <p>2017</p>
+    <div class="row">
+        <div class="col-xs-6 left_box container-fluid">
+            <ul class="list-group">
+                <li id="{{tweet.id}}" class="list-group-item" ng-repeat="tweet in tweetsList" draggable="true" ondragstart="angular.element(this).scope().drag(event)">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-xs-6 col-lg-4">
+                                <img style="width:50%" ng-src="{{tweet.user.biggerProfileImageURL}}">
+                            </div>
+                            <div class="col-xs-12 col-sm-6 col-lg-8">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div class="col-xs-6 col-md-4 font-weight-bold">
+                                            <p><strong>{{tweet.user.name}}</strong></p>
+                                        </div>
+                                        <div class="col-xs-6 col-md-4">
+                                            <p>{{tweet.user.screenName}}</p>
+                                        </div>
+                                        <div class="col-xs-6 col-md-4">
+                                            <p>2017</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="container-fluid">
-                                <p style="word-wrap: break-word">{{tweet.text}}</p>
+                                <div class="container-fluid">
+                                    <p style="word-wrap: break-word">{{tweet.text}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
-        </ul>
-    </div>
+                </li>
+            </ul>
+        </div>
 
-    <div class="right_box container-fluid" ondrop="angular.element(this).scope().drop(event)" ondragover="angular.element(this).scope().allowDrop(event)">
-        <ul class="list-group" ng-bind-html="savedTweets">
-        </ul>
+        <div class="col-xs-6 right_box container-fluid" ondrop="angular.element(this).scope().drop(event)" ondragover="angular.element(this).scope().allowDrop(event)">
+            <ul class="list-group" ng-bind-html="savedTweets">
+            </ul>
+        </div>
     </div>
-
 </body>
 
 </html>

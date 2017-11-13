@@ -5,6 +5,28 @@
     tweetSaver.controller('tweetsCtrl', function($sce, $scope) {
 
         this.$onInit = function() {
+            $scope.getTweets();
+
+        };
+
+        $scope.loadTweets = function() {
+            $.ajax({
+                url: 'http://tweetsaver.herokuapp.com/?q=' + $scope.queryInput + '&count=10',
+                type: 'GET',
+                contentType: "application/json; charset=utf-8",
+                dataType: "jsonp",
+                success: function(response) {
+                    $scope.tweetsList = response.tweets;
+                    $scope.getTweets();
+                    $scope.$apply();
+                },
+                error: function() {
+                    alert('error');
+                }
+            });
+        }
+
+        $scope.getTweets = function() {
             // Load saved tweets
             var savedTweetsHTML = '';
             var savedTweets = JSON.parse(localStorage.getItem('savedTweets'));
@@ -14,23 +36,6 @@
                 }, this);
                 $scope.savedTweets = $sce.trustAsHtml(savedTweetsHTML);
             }
-
-        };
-
-        $scope.loadTweets = function() {
-            $.ajax({
-                url: 'http://tweetsaver.herokuapp.com/?q=' + $scope.queryInput + '&count=2',
-                type: 'GET',
-                contentType: "application/json; charset=utf-8",
-                dataType: "jsonp",
-                success: function(response) {
-                    $scope.tweetsList = response.tweets;
-                    $scope.$apply();
-                },
-                error: function() {
-                    alert('error');
-                }
-            });
         }
 
         $scope.drag = function(event) {
@@ -49,7 +54,7 @@
             var savedTweets = localStorage.getItem('savedTweets') ? JSON.parse(localStorage.getItem('savedTweets')) : [];
             savedTweets.push(sourceElement.outerHTML);
             localStorage.setItem('savedTweets', JSON.stringify(savedTweets));
-            event.target.appendChild(document.getElementById(sourceID));
+            $('.right_box')[0].appendChild(document.getElementById(sourceID));
         }
     });
 }());
