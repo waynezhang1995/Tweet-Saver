@@ -42,8 +42,8 @@
     </div>
     <div class="left_box container-fluid">
         <ul class="list-group" ng-repeat="tweet in tweetsList">
-            <li class="list-group-item">
-                <div class="container-fluid" draggable="true">
+            <li id="{{tweet.id}}" class="list-group-item" draggable="true" ondragstart="angular.element(this).scope().drag(event)">
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-xs-6 col-lg-4">
                             <img style="width:50%" ng-src="{{tweet.user.biggerProfileImageURL}}">
@@ -72,8 +72,9 @@
         </ul>
     </div>
 
-    <div class="right_box container-fluid">
-
+    <div class="right_box container-fluid" ondrop="angular.element(this).scope().drop(event)" ondragover="angular.element(this).scope().allowDrop(event)">
+        <ul class="list-group" ng-bind-html="savedTweets">
+        </ul>
     </div>
 
 </body>

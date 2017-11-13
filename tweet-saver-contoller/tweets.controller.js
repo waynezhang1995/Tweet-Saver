@@ -2,13 +2,19 @@
     "use strict";
 
     var tweetSaver = angular.module("tweetSaverModule");
-    tweetSaver.controller('tweetsCtrl', function($scope) {
+    tweetSaver.controller('tweetsCtrl', function($sce, $scope) {
+
         this.$onInit = function() {
-            $(function() {
-                $("#sortable1, #sortable2").sortable({
-                    connectWith: ".connectedSortable"
-                }).disableSelection();
-            });
+            // Load saved tweets
+            var savedTweetsHTML = '';
+            var savedTweets = JSON.parse(localStorage.getItem('savedTweets'));
+            if (savedTweets) {
+                savedTweets.forEach(function(tweet) {
+                    savedTweetsHTML += tweet;
+                }, this);
+                $scope.savedTweets = $sce.trustAsHtml(savedTweetsHTML);
+            }
+
         };
 
         $scope.loadTweets = function() {
@@ -25,6 +31,25 @@
                     alert('error');
                 }
             });
+        }
+
+        $scope.drag = function(event) {
+            event.dataTransfer.setData("id", event.target.id);
+        }
+
+        $scope.allowDrop = function(event) {
+            event.preventDefault();
+        }
+
+        $scope.drop = function(event) {
+            event.preventDefault();
+
+            var sourceID = event.dataTransfer.getData("id");
+            var sourceElement = $('#' + sourceID)[0];
+            var savedTweets = localStorage.getItem('savedTweets') ? JSON.parse(localStorage.getItem('savedTweets')) : [];
+            savedTweets.push(sourceElement.outerHTML);
+            localStorage.setItem('savedTweets', JSON.stringify(savedTweets));
+            event.target.appendChild(document.getElementById(sourceID));
         }
     });
 }());
