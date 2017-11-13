@@ -32,35 +32,39 @@
                 </div>
             </div>
             <div class="col-xs-6">
-                <h3>Drag tweets to save</h3>
+                <h3>Drag tweets to save
+                    <span>
+                        <button class="clear-button btn btn-lg" type="button" ng-click="clearSavedTweets()">Clear</button>
+                    </span>
+                </h3>
             </div>
         </div>
     </div>
     <div class="row">
-        <div class="left_box container-fluid">
+        <div class="left-box container-fluid">
             <ul class="list-group">
                 <li id="{{tweet.id}}" class="list-group-item" ng-repeat="tweet in tweetsList" draggable="true" ondragstart="angular.element(this).scope().drag(event)">
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="userProfile">
+                            <div class="user-profile">
                                 <img draggable="false" ng-src="{{tweet.user.biggerProfileImageURL}}">
                             </div>
-                            <div class="userInfo">
+                            <div class="user-info">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <div class="userName col-md-4 font-weight-bold">
+                                        <div class="user-name col-md-4 font-weight-bold">
                                             <p><strong>{{tweet.user.name}}</strong></p>
                                         </div>
-                                        <div class="userAccount col-md-4">
+                                        <div class="user-account col-md-4">
                                             <p>@{{tweet.user.screenName}}</p>
                                         </div>
-                                        <div class="tweetDate col-md-4">
+                                        <div class="tweet-date col-md-4">
                                             <p>{{tweet.createdAt | date:'yyyy-MM-dd'}}</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="container-fluid">
-                                    <p class="tweetContent">{{tweet.text}}</p>
+                                    <p class="tweet-content">{{tweet.text}}</p>
                                 </div>
                             </div>
                         </div>
@@ -69,7 +73,7 @@
             </ul>
         </div>
 
-        <div class="right_box container-fluid" ondrop="angular.element(this).scope().drop(event)" ondragover="angular.element(this).scope().allowDrop(event)">
+        <div class="right-box container-fluid" ondrop="angular.element(this).scope().drop(event)" ondragover="angular.element(this).scope().allowDrop(event)">
             <ul class="list-group" ng-bind-html="savedTweets">
             </ul>
         </div>

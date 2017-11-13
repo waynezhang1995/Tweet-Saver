@@ -6,6 +6,7 @@
 
         this.$onInit = function() {
             $scope.getTweets();
+            $scope.bindEnterKeyPress();
         };
 
         $scope.loadTweets = function() {
@@ -37,6 +38,19 @@
             }
         }
 
+        $scope.bindEnterKeyPress = function() {
+            $('.custom-search-input input').keydown(function(e) {
+                if (e.keyCode == 13) {
+                    $scope.loadTweets();
+                }
+            })
+        }
+
+        $scope.clearSavedTweets = function() {
+            localStorage.clear();
+            $('.right-box ul').empty();
+        }
+
         $scope.drag = function(event) {
             event.dataTransfer.setData("id", event.target.id);
         }
@@ -62,9 +76,15 @@
                     return;
                 }
             }
+
+            if (savedTweets.length === 0) {
+                $('.right-box')[0].appendChild($('#' + sourceID)[0]);
+            } else {
+                $('.right-box ul')[0].insertBefore($('#' + sourceID)[0], $('.right-box ul')[0].firstChild);
+            }
+
             savedTweets.push(sourceElement.outerHTML);
             localStorage.setItem('savedTweets', JSON.stringify(savedTweets));
-            $('.right_box')[0].appendChild(document.getElementById(sourceID));
         }
     });
 }());

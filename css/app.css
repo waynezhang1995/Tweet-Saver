@@ -18,7 +18,7 @@ h3 {
 
 .custom-search-input {
     padding: 3px;
-    border: solid 1px #E4E4E4;
+    border: solid 1px #e4e4e4;
     border-radius: 6px;
     background-color: #fff;
     margin-left: 2%;
@@ -43,8 +43,11 @@ h3 {
 }
 
 .search-box {
-    margin-bottom: 10px;
-    margin-left: 0;
+    margin: 0 0 10px;
+}
+
+.search-box h3 {
+    margin-top: 5px;
 }
 
 .list-group-item {
@@ -57,21 +60,27 @@ h3 {
 
 /* Tweets panel box*/
 
-.left_box {
+.left-box {
     display: inline-block;
-    border: solid 1px #E4E4E4;
+    border: solid 1px #e4e4e4;
     width: 48%;
     margin: 0 2% 0 1%;
     height: 600px;
     overflow-y: scroll;
 }
 
-.right_box {
+.right-box {
     display: inline-block;
-    border: solid 1px #E4E4E4;
+    border: solid 1px #e4e4e4;
     width: 48%;
     height: 600px;
     overflow-y: scroll;
+}
+
+.clear-button {
+    background-color: #fff;
+    border: solid 1px #e4e4e4;
+    margin-left: 50%;
 }
 
 
@@ -80,31 +89,31 @@ h3 {
 
 /* Tweet element */
 
-.userAccount {
+.user-account {
     color: #757575;
 }
 
-.userProfile {
+.user-profile {
     float: left;
     width: 19.333333%;
 }
 
-.userProfile img {
+.user-profile img {
     border-radius: 50%;
     width: 97%;
 }
 
-.userInfo {
+.user-info {
     float: left;
     padding-left: 25px;
     width: 80.666667%;
 }
 
-.tweetDate {
+.tweet-date {
     text-align: right;
 }
 
-.tweetContent {
+.tweet-content {
     word-wrap: break-word;
 }
 
