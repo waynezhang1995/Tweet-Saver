@@ -3,6 +3,9 @@ h2 {
     text-align: center;
 }
 
+
+/* Search input box */
+
 .custom-search-input {
     padding: 3px;
     border: solid 1px #E4E4E4;
@@ -31,6 +34,21 @@ h2 {
     font-size: 23px;
 }
 
+.search-box {
+    margin-bottom: 10px;
+    margin-left: 0;
+}
+
+.list-group-item {
+    margin-top: 15px;
+}
+
+
+/*********************/
+
+
+/* Tweets panel box*/
+
 .left_box {
     display: inline-block;
     border: solid 1px #E4E4E4;
@@ -48,15 +66,20 @@ h2 {
     overflow-y: scroll;
 }
 
-.search-box {
-    margin-bottom: 10px;
-    margin-left: 0;
-}
 
-.list-group-item {
-    margin-top: 15px;
-}
+/*********************/
+
+
+/* Tweet element */
 
 .userAccount {
     color: #757575;
 }
+
+.userProfile {
+    border-radius: 50%;
+    width: 50%;
+}
+
+
+/*********************/
