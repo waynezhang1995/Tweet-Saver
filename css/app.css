@@ -17,21 +17,17 @@ h3 {
 /* Search input box */
 
 .custom-search-input {
-    padding: 3px;
     border: solid 1px #e4e4e4;
-    border-radius: 6px;
     background-color: #fff;
+    border-radius: 6px;
     margin-left: 2%;
+    padding: 3px;
     width: 47%;
 }
 
 .custom-search-input input {
     border: 0;
     box-shadow: none;
-}
-
-.custom-search-input .glyphicon-search {
-    font-size: 23px;
 }
 
 .custom-search-input .input-group-btn {
@@ -60,21 +56,17 @@ h3 {
 
 /* Tweets panel box*/
 
-.left-box {
-    display: inline-block;
+.left-box,
+.right-box {
     border: solid 1px #e4e4e4;
-    width: 48%;
-    margin: 0 2% 0 1%;
+    display: inline-block;
     height: 600px;
     overflow-y: scroll;
+    width: 48%;
 }
 
-.right-box {
-    display: inline-block;
-    border: solid 1px #e4e4e4;
-    width: 48%;
-    height: 600px;
-    overflow-y: scroll;
+.left-box {
+    margin: 0 2% 0 1%;
 }
 
 .clear-button {
