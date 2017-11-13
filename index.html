@@ -9,12 +9,10 @@
     <!-- Javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./javascript/modules.js"></script>
-    <script type="text/javascript" src="./tweet-saver-module/tweet-detail.component.js"></script>
-    <script type="text/javascript" src="./tweet-saver-module/search.component.js"></script>
-    <script type="text/javascript" src="./tweet-saver-module/saver.component.js"></script>
-    <script type="text/javascript" src="./tweet-saver-module/tweets-display.component.js"></script>
+    <script type="text/javascript" src="./javascript/app.js"></script>
+    <script type="text/javascript" src="./tweet-saver-contoller/tweets.controller.js"></script>
     <!-- CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -23,11 +21,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 
-<body>
+<body ng-controller="tweetsCtrl">
     <h1>Tweet Saver</h1>
     <hr>
-    <search></search>
-    <tweets-display></tweets-display>
+    <div class="container search-box">
+        <div class="row">
+            <div class="col-md-6">
+                <div id="custom-search-input">
+                    <div class="input-group col-md-12">
+                        <input type="text" class="form-control input-lg" ng-model="queryInput" placeholder="Search Twitter" />
+                        <span class="input-group-btn">
+                            <button class="btn btn-info btn-lg" ng-click="loadTweets()">
+                            <i class="glyphicon glyphicon-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="left_box container-fluid">
+        <ul class="list-group" ng-repeat="tweet in tweetsList">
+            <li class="list-group-item">
+                <div class="container-fluid" draggable="true">
+                    <div class="row">
+                        <div class="col-xs-6 col-lg-4">
+                            <img style="width:50%" ng-src="{{tweet.user.biggerProfileImageURL}}">
+                        </div>
+                        <div class="col-xs-12 col-sm-6 col-lg-8">
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-xs-6 col-md-4 font-weight-bold">
+                                        <p><strong>{{tweet.user.name}}</strong></p>
+                                    </div>
+                                    <div class="col-xs-6 col-md-4">
+                                        <p>{{tweet.user.screenName}}</p>
+                                    </div>
+                                    <div class="col-xs-6 col-md-4">
+                                        <p>2017</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="container-fluid">
+                                <p style="word-wrap: break-word">{{tweet.text}}</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div class="right_box container-fluid">
+
+    </div>
 
 </body>
 
