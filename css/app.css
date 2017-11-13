@@ -21,8 +21,8 @@ h3 {
     border: solid 1px #E4E4E4;
     border-radius: 6px;
     background-color: #fff;
-    margin-left: 3%;
-    width: 45%;
+    margin-left: 2%;
+    width: 47%;
 }
 
 .custom-search-input input {
@@ -35,9 +35,7 @@ h3 {
 }
 
 .custom-search-input .input-group-btn {
-    border-left-width: 2px;
-    border-left-style: solid;
-    border-left-color: #bfbdbd;
+    border-left: solid 2px #bfbdbd;
 }
 
 .custom-search-input .input-group-btn button {
@@ -62,8 +60,8 @@ h3 {
 .left_box {
     display: inline-block;
     border: solid 1px #E4E4E4;
-    width: 45%;
-    margin: 0 4% 0 3%;
+    width: 48%;
+    margin: 0 2% 0 1%;
     height: 600px;
     overflow-y: scroll;
 }
@@ -71,7 +69,7 @@ h3 {
 .right_box {
     display: inline-block;
     border: solid 1px #E4E4E4;
-    width: 45%;
+    width: 48%;
     height: 600px;
     overflow-y: scroll;
 }
@@ -100,6 +98,10 @@ h3 {
     float: left;
     padding-left: 25px;
     width: 80.666667%;
+}
+
+.tweetDate {
+    text-align: right;
 }
 
 .tweetContent {
