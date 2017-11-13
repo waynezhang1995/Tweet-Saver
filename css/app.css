@@ -8,8 +8,8 @@ h2 {
     border: solid 1px #E4E4E4;
     border-radius: 6px;
     background-color: #fff;
-    margin-left: 34px;
-    width: 41%;
+    margin-left: 3%;
+    width: 45%;
 }
 
 .custom-search-input input {
@@ -34,17 +34,16 @@ h2 {
 .left_box {
     display: inline-block;
     border: solid 1px #E4E4E4;
-    width: 600px;
+    width: 45%;
+    margin: 0 4% 0 3%;
     height: 500px;
-    margin-left: 50px;
-    margin-right: 50px;
     overflow-y: scroll;
 }
 
 .right_box {
     display: inline-block;
     border: solid 1px #E4E4E4;
-    width: 600px;
+    width: 45%;
     height: 500px;
     overflow-y: scroll;
 }

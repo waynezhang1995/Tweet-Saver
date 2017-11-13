@@ -52,6 +52,11 @@
             var sourceID = event.dataTransfer.getData("id");
             var sourceElement = $('#' + sourceID)[0];
             var savedTweets = localStorage.getItem('savedTweets') ? JSON.parse(localStorage.getItem('savedTweets')) : [];
+            var regex = new RegExp(/(id="(.*?)(\"))/g);
+
+            savedTweets.forEach(function(tweet) {
+                console.log(tweet.match(regex));
+            });
             savedTweets.push(sourceElement.outerHTML);
             localStorage.setItem('savedTweets', JSON.stringify(savedTweets));
             $('.right_box')[0].appendChild(document.getElementById(sourceID));
