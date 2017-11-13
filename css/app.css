@@ -1,7 +1,17 @@
-body h1,
-h2 {
+body h2,
+h3 {
     text-align: center;
 }
+
+
+/* Bootstrap override */
+
+.row {
+    margin: 0;
+}
+
+
+/**********************/
 
 
 /* Search input box */
@@ -20,18 +30,18 @@ h2 {
     box-shadow: none;
 }
 
-.custom-search-input button {
-    margin: 2px 0 0 0;
-    background: none;
-    box-shadow: none;
-    border: 0;
-    color: #666666;
-    padding: 0 8px 0 10px;
-    border-left: solid 1px #ccc;
-}
-
 .custom-search-input .glyphicon-search {
     font-size: 23px;
+}
+
+.custom-search-input .input-group-btn {
+    border-left-width: 2px;
+    border-left-style: solid;
+    border-left-color: #bfbdbd;
+}
+
+.custom-search-input .input-group-btn button {
+    background-color: #fff;
 }
 
 .search-box {
@@ -54,7 +64,7 @@ h2 {
     border: solid 1px #E4E4E4;
     width: 45%;
     margin: 0 4% 0 3%;
-    height: 500px;
+    height: 600px;
     overflow-y: scroll;
 }
 
@@ -62,7 +72,7 @@ h2 {
     display: inline-block;
     border: solid 1px #E4E4E4;
     width: 45%;
-    height: 500px;
+    height: 600px;
     overflow-y: scroll;
 }
 
@@ -77,8 +87,23 @@ h2 {
 }
 
 .userProfile {
+    float: left;
+    width: 19.333333%;
+}
+
+.userProfile img {
     border-radius: 50%;
-    width: 50%;
+    width: 97%;
+}
+
+.userInfo {
+    float: left;
+    padding-left: 25px;
+    width: 80.666667%;
+}
+
+.tweetContent {
+    word-wrap: break-word;
 }
 
 
