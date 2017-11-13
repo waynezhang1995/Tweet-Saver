@@ -6,7 +6,6 @@
 
         this.$onInit = function() {
             $scope.getTweets();
-
         };
 
         $scope.loadTweets = function() {
@@ -52,11 +51,17 @@
             var sourceID = event.dataTransfer.getData("id");
             var sourceElement = $('#' + sourceID)[0];
             var savedTweets = localStorage.getItem('savedTweets') ? JSON.parse(localStorage.getItem('savedTweets')) : [];
-            var regex = new RegExp(/(id="(.*?)(\"))/g);
 
-            savedTweets.forEach(function(tweet) {
-                console.log(tweet.match(regex));
-            });
+            /**
+             * Check if selected tweet had already been saved
+             * Use simple for loop instaed of forEach since we need to
+             * teminate this function immediatelly
+             */
+            for (var i = 0; i < savedTweets.length; i++) {
+                if ($.parseHTML(savedTweets[i])[0].id === sourceID) {
+                    return;
+                }
+            }
             savedTweets.push(sourceElement.outerHTML);
             localStorage.setItem('savedTweets', JSON.stringify(savedTweets));
             $('.right_box')[0].appendChild(document.getElementById(sourceID));
